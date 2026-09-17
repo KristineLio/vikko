@@ -3,11 +3,238 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta http-equiv="refresh" content="0; url=site/" />
-  <title>VIKO ASHURA</title>
-  <script>window.location.replace("site/");</script>
+  <meta name="theme-color" content="#090807" />
+  <meta name="description" content="VIKO ASHURA — an interactive memory reconstruction story." />
+  <title>VIKO ASHURA — The King Who Chose to Forget</title>
+  <link rel="stylesheet" href="site/styles.css" />
+  <link rel="stylesheet" href="site/video.css" />
 </head>
 <body>
-  <p><a href="site/">Enter VIKO ASHURA</a></p>
+  <div class="grain" aria-hidden="true"></div>
+
+  <header class="topbar">
+    <a class="brand" href="#top" aria-label="Viko Ashura home">
+      <span class="crown-mark" aria-hidden="true">♛</span>
+      <span>VIKO ASHURA</span>
+    </a>
+    <div class="top-actions">
+      <span id="saveState" class="save-state" aria-live="polite">Memory intact</span>
+      <button id="resetButton" class="ghost-button" type="button">Erase memory</button>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero" aria-labelledby="hero-title">
+      <video
+        class="hero-image hero-video"
+        autoplay
+        muted
+        loop
+        playsinline
+        preload="metadata"
+        poster="assets/characters/Viko_Defender_VibeFlow.png"
+        aria-hidden="true"
+      >
+        <source src="assets/video/Viko_Ashura_FINAL_SUBMISSION_15s_with_voices_music.mp4" type="video/mp4" />
+      </video>
+      <div class="hero-vignette" aria-hidden="true"></div>
+      <div class="hero-content">
+        <p class="eyebrow">THE KING WHO CHOSE TO FORGET</p>
+        <h1 id="hero-title">You cannot bury a crown<br />without burying part of yourself.</h1>
+        <p class="hero-copy">
+          Viko erased the King he used to be. Now fragments of that life are returning — and the Queen he chose to forget is waiting inside them.
+        </p>
+        <div class="hero-actions">
+          <a class="primary-button" href="#memories">Reconstruct the memory</a>
+          <a class="text-link" href="#archive">View archive <span aria-hidden="true">↘</span></a>
+        </div>
+        <p id="returningMessage" class="returning-message" hidden></p>
+      </div>
+      <div class="hero-status" aria-label="Memory reconstruction status">
+        <span>MEMORY RECONSTRUCTION</span>
+        <strong id="heroPercent">0%</strong>
+      </div>
+    </section>
+
+    <section class="intro section-shell">
+      <p class="section-kicker">01 / THE PREMISE</p>
+      <div class="split-copy">
+        <h2>He did not lose his memory.<br />He chose to destroy it.</h2>
+        <div>
+          <p>Kleopatra returns with a truth Viko cannot ignore: humanity may survive only if he becomes the King he deliberately erased.</p>
+          <p>This version turns that conflict into a system. You decide what Viko learns before you decide who he becomes.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="memories" class="memories section-shell" aria-labelledby="memory-title">
+      <div class="section-heading">
+        <div>
+          <p class="section-kicker">02 / MEMORY RECONSTRUCTION</p>
+          <h2 id="memory-title">Four fragments survived the erasure.</h2>
+        </div>
+        <div class="meter-wrap" aria-label="Memory reconstruction progress">
+          <div class="meter-copy"><span id="memoryCount">0 / 4 found</span><span id="memoryPercent">0%</span></div>
+          <div class="meter-track"><div id="memoryBar" class="meter-bar"></div></div>
+        </div>
+      </div>
+
+      <div class="memory-grid">
+        <button class="memory-card" type="button" data-memory="crown" aria-describedby="memory-crown-caption">
+          <img src="assets/characters/Viko_VibeFlow.png" alt="Portrait of Viko Ashura" />
+          <span class="memory-number">I</span>
+          <span class="memory-overlay"></span>
+          <span class="memory-card-copy">
+            <small>FRAGMENT</small>
+            <strong>The Crown</strong>
+            <span id="memory-crown-caption">Power was not taken from him.</span>
+          </span>
+          <span class="found-mark">REMEMBERED</span>
+        </button>
+
+        <button class="memory-card" type="button" data-memory="queen" aria-describedby="memory-queen-caption">
+          <img src="assets/characters/Kleopatra_Queen_VibeFlow.png" alt="Portrait of Queen Kleopatra" />
+          <span class="memory-number">II</span>
+          <span class="memory-overlay"></span>
+          <span class="memory-card-copy">
+            <small>FRAGMENT</small>
+            <strong>The Queen</strong>
+            <span id="memory-queen-caption">Someone remembers the life he deleted.</span>
+          </span>
+          <span class="found-mark">REMEMBERED</span>
+        </button>
+
+        <button class="memory-card" type="button" data-memory="war" aria-describedby="memory-war-caption">
+          <img src="assets/characters/Viko_Defender_VibeFlow.png" alt="Viko as a defender" />
+          <span class="memory-number">III</span>
+          <span class="memory-overlay"></span>
+          <span class="memory-card-copy">
+            <small>FRAGMENT</small>
+            <strong>The War</strong>
+            <span id="memory-war-caption">The King existed for a reason.</span>
+          </span>
+          <span class="found-mark">REMEMBERED</span>
+        </button>
+
+        <button class="memory-card" type="button" data-memory="erasure" aria-describedby="memory-erasure-caption">
+          <img src="assets/characters/Viko_Memory_He_Refused_VibeFlow.png" alt="A fractured memory from Viko's past" />
+          <span class="memory-number">IV</span>
+          <span class="memory-overlay"></span>
+          <span class="memory-card-copy">
+            <small>FRAGMENT</small>
+            <strong>The Erasure</strong>
+            <span id="memory-erasure-caption">The final memory explains why he forgot.</span>
+          </span>
+          <span class="found-mark">REMEMBERED</span>
+        </button>
+      </div>
+
+      <p class="memory-hint">Recover any three fragments to decide Viko's fate. Recover all four to expose the choice he tried to erase.</p>
+    </section>
+
+    <section id="decision" class="decision section-shell" aria-labelledby="decision-title">
+      <div class="decision-stage">
+        <p class="section-kicker">03 / THE DECISION</p>
+        <p id="decisionLock" class="decision-lock">RECONSTRUCT 3 MEMORIES TO CONTINUE</p>
+        <h2 id="decision-title">Would you remember<br />who you were?</h2>
+        <p id="decisionCopy" class="decision-copy">The answer is still hidden behind the missing pieces.</p>
+
+        <div class="choice-grid" aria-label="Choose Viko's fate">
+          <button class="choice-card" type="button" data-ending="remember" disabled>
+            <span class="choice-index">01</span>
+            <span class="choice-title">REMEMBER</span>
+            <span class="choice-description">Take back the crown. Accept the man who wore it.</span>
+          </button>
+          <button class="choice-card" type="button" data-ending="refuse" disabled>
+            <span class="choice-index">02</span>
+            <span class="choice-title">REFUSE</span>
+            <span class="choice-description">Protect the life he chose, whatever the world loses.</span>
+          </button>
+          <button id="thirdChoice" class="choice-card secret-choice" type="button" data-ending="break" disabled hidden>
+            <span class="choice-index">03</span>
+            <span class="choice-title">BREAK THE CYCLE</span>
+            <span class="choice-description">Remember everything — then refuse to become the same King.</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <section id="ending" class="ending" hidden aria-live="polite">
+      <img id="endingImage" class="ending-image" src="assets/characters/Viko_Defender_VibeFlow.png" alt="" />
+      <div class="ending-overlay"></div>
+      <div class="ending-content section-shell">
+        <p class="section-kicker">YOUR ENDING</p>
+        <p id="endingLabel" class="ending-label"></p>
+        <h2 id="endingTitle"></h2>
+        <p id="endingText" class="ending-text"></p>
+        <blockquote id="endingQuote"></blockquote>
+        <div class="ending-actions">
+          <button id="replayButton" class="primary-button button-reset" type="button">Reconstruct another fate</button>
+          <a class="text-link" href="#archive">Open the archive <span aria-hidden="true">↘</span></a>
+        </div>
+      </div>
+    </section>
+
+    <section id="archive" class="archive section-shell" aria-labelledby="archive-title">
+      <div class="section-heading archive-heading">
+        <div>
+          <p class="section-kicker">04 / ARCHIVE</p>
+          <h2 id="archive-title">What survived.</h2>
+        </div>
+        <p id="archiveStatus" class="archive-status">Finish the story to unlock your outcome record.</p>
+      </div>
+
+      <div class="archive-grid">
+        <article class="archive-card wide">
+          <img src="assets/characters/Kleopatra_Queen_Remembers_VibeFlow.png" alt="Kleopatra remembering Viko" />
+          <div><small>CHARACTER FILE / KLEOPATRA</small><h3>The one who remembers</h3><p>She carries the shared history Viko removed from himself. Her return makes memory relational, not just personal.</p></div>
+        </article>
+        <article class="archive-card">
+          <img src="assets/characters/Viko_VibeFlow.png" alt="Viko Ashura portrait" />
+          <div><small>CHARACTER FILE / VIKO</small><h3>The erased King</h3><p>A man split between chosen identity and inherited responsibility.</p></div>
+        </article>
+        <article class="archive-card outcome-card">
+          <div class="outcome-lock" id="outcomeLock">LOCKED UNTIL A FATE IS CHOSEN</div>
+          <div id="outcomeRecord" hidden>
+            <small>PLAYER RECORD</small>
+            <h3 id="recordTitle">No fate recorded</h3>
+            <p id="recordText"></p>
+            <dl>
+              <div><dt>Memories recovered</dt><dd id="recordMemory">0 / 4</dd></div>
+              <div><dt>Decision</dt><dd id="recordDecision">—</dd></div>
+            </dl>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="making section-shell">
+      <p class="section-kicker">05 / BUILD NOTES</p>
+      <div class="split-copy">
+        <h2>From cinematic character<br />to interactive narrative.</h2>
+        <div>
+          <p>The original hackathon build combined Studio-generated imagery and video with a VibeFlow choice experience. This expanded version adds state, exploration, branching outcomes, persistence, and a post-story archive.</p>
+          <div class="tech-row" aria-label="Technologies and tools"><span>VibeFlow</span><span>Seedance 2.5</span><span>Grok Imagine</span><span>HTML/CSS/JS</span><span>localStorage</span></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <dialog id="memoryDialog" class="memory-dialog">
+    <button id="closeDialog" class="dialog-close" type="button" aria-label="Close memory">×</button>
+    <p id="dialogIndex" class="section-kicker"></p>
+    <h2 id="dialogTitle"></h2>
+    <p id="dialogBody" class="dialog-body"></p>
+    <blockquote id="dialogQuote"></blockquote>
+    <p id="dialogSpeaker" class="dialog-speaker"></p>
+    <button id="keepMemory" class="primary-button button-reset" type="button">Keep this memory</button>
+  </dialog>
+
+  <footer class="footer section-shell">
+    <span>VIKO ASHURA</span>
+    <span>Grand Prize · SkyCastle Studio AI Hackathon · 2026</span>
+  </footer>
+
+  <script src="site/app.js"></script>
 </body>
 </html>
