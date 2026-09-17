@@ -7,6 +7,7 @@
   <meta name="description" content="VIKO ASHURA — an interactive memory reconstruction story." />
   <title>VIKO ASHURA — The King Who Chose to Forget</title>
   <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="video.css" />
 </head>
 <body>
   <div class="grain" aria-hidden="true"></div>
@@ -24,7 +25,18 @@
 
   <main id="top">
     <section class="hero" aria-labelledby="hero-title">
-      <img class="hero-image" src="../assets/characters/Viko_Defender_VibeFlow.png" alt="Viko Ashura standing in a dark, gold-lit landscape" />
+      <video
+        class="hero-image hero-video"
+        autoplay
+        muted
+        loop
+        playsinline
+        preload="metadata"
+        poster="../assets/characters/Viko_Defender_VibeFlow.png"
+        aria-hidden="true"
+      >
+        <source src="../assets/video/Viko_Ashura_FINAL_SUBMISSION_15s_with_voices_music.mp4" type="video/mp4" />
+      </video>
       <div class="hero-vignette" aria-hidden="true"></div>
       <div class="hero-content">
         <p class="eyebrow">THE KING WHO CHOSE TO FORGET</p>
