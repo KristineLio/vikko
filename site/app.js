@@ -1,4 +1,7 @@
 const STORAGE_KEY = "viko-ashura-v2";
+const SCRIPT_URL = document.currentScript?.src || window.location.href;
+const ASSET_ROOT = new URL("../assets/", SCRIPT_URL);
+const assetUrl = path => new URL(path, ASSET_ROOT).href;
 
 const memoryData = {
   crown: {
@@ -37,7 +40,7 @@ const endingData = {
     title: "The King returns.",
     text: "Viko accepts that erasing the past never erased its consequences. He takes back the memory, the crown, and the responsibility he once rejected. But remembering does not feel like victory. It feels like a debt becoming visible again.",
     quote: "I remember the throne. I remember the war. I remember you.",
-    image: "../assets/characters/Viko_Defender_VibeFlow.png",
+    image: assetUrl("characters/Viko_Defender_VibeFlow.png"),
     alt: "Viko Ashura standing as a defender"
   },
   refuse: {
@@ -45,7 +48,7 @@ const endingData = {
     title: "Viko refuses the crown.",
     text: "He keeps the recovered memories but rejects the identity attached to them. Kleopatra leaves knowing he finally understands what he is refusing. The world loses its old King — and Viko accepts the cost of remaining himself.",
     quote: "Knowing who I was does not obligate me to become him.",
-    image: "../assets/characters/Viko_Memory_He_Refused_VibeFlow.png",
+    image: assetUrl("characters/Viko_Memory_He_Refused_VibeFlow.png"),
     alt: "A fractured memory from Viko's past"
   },
   break: {
@@ -53,7 +56,7 @@ const endingData = {
     title: "He remembers — and changes the ending.",
     text: "With every fragment restored, Viko sees the false choice hidden inside his own erasure: become the old King or remain powerless. He chooses neither. He keeps the memory, refuses the old crown, and carries its responsibility forward on his own terms.",
     quote: "I do not need to forget the King to stop obeying him.",
-    image: "../assets/characters/Kleopatra_Queen_Remembers_VibeFlow.png",
+    image: assetUrl("characters/Kleopatra_Queen_Remembers_VibeFlow.png"),
     alt: "Kleopatra facing the memory of Viko"
   }
 };
