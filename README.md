@@ -14,11 +14,11 @@
 </p>
 
 <p align="center">
-  <a href="https://portal-snapshots.users.skycastle.ai/perma-christina-f06f090a162fc0ae3150ab88/index.html?v=1789411764930"><strong>▶ Try the interactive story</strong></a>
+  <a href="https://portal-snapshots.users.skycastle.ai/perma-christina-f06f090a162fc0ae3150ab88/index.html?v=1789411764930"><strong>▶ Original winning build</strong></a>
   &nbsp;·&nbsp;
-  <a href="assets/video/Viko_Ashura_FINAL_SUBMISSION_15s_with_voices_music.mp4"><strong>🎬 Watch the 15s submission</strong></a>
+  <a href="assets/video/Viko_Ashura_FINAL_SUBMISSION_15s_with_voices_music.mp4"><strong>🎬 15s submission</strong></a>
   &nbsp;·&nbsp;
-  <a href="docs/story.md"><strong>📖 Read the story</strong></a>
+  <a href="site/"><strong>🧠 V2 source</strong></a>
 </p>
 
 ---
@@ -36,7 +36,7 @@ He did not just forget a throne.
 > **Would you remember?**  
 > Choose once. Accept the consequence.
 
-The project turns that conflict into an interaction. Instead of watching Viko make the decision, the audience makes it for him — once — and lives with the result.
+The original project turned that conflict into one consequential interaction. The expanded portfolio version asks a second question: **what if the player had to reconstruct the truth before being allowed to decide Viko's fate?**
 
 ---
 
@@ -44,31 +44,71 @@ The project turns that conflict into an interaction. Instead of watching Viko ma
 
 | | |
 | --- | --- |
-| **Project type** | Interactive character experience / narrative prototype |
+| **Project type** | Interactive narrative / character experience |
 | **My role** | Concept, character direction, story design, visual direction, interaction design, build and submission |
 | **Built for** | SkyCastle Studio AI Hackathon · September 2026 |
 | **Result** | 🏆 Grand Prize · $300 |
-| **Interactive build** | VibeFlow |
+| **Original interactive build** | VibeFlow |
+| **Expanded V2** | HTML · CSS · JavaScript · localStorage |
 | **Video generation** | ByteDance · Seedance 2.5 |
 | **Image generation** | xAI · Grok Imagine Image 2.0 |
 
 ---
 
-## The experience
+## V2 — Memory Reconstruction
 
-The core design decision was to make the **choice part of Viko's conflict**, not an extra interaction added after the story.
+After the hackathon, I expanded Viko from a one-choice experience into a small interactive narrative system.
 
-The player is confronted with the same contradiction that defines the character:
+The player now uncovers **four fragments** from Viko's erased life:
 
-- **Remember** — reclaim the King, the Queen, the responsibility, and the life Viko deliberately erased.
-- **Refuse** — protect the identity he chose for himself, even if the world may need the person he used to be.
+1. **The Crown** — the power he gave up willingly.
+2. **The Queen** — the person who remembers what he deleted.
+3. **The War** — the reason people once needed the King.
+4. **The Erasure** — the memory that explains why Viko chose to forget.
 
-There is no endless branching menu. The experience is built around one consequential choice because the emotional weight comes from commitment.
+The interaction is deliberately stateful:
+
+- recover **3 / 4 memories** → the original two endings unlock
+- recover **4 / 4 memories** → a third path becomes available
+- the decision screen changes as the player learns more
+- discovered memories and the chosen ending persist in `localStorage`
+- returning visitors are told that the site **remembered their decision**
+- the ending becomes part of a post-story **Archive / player record**
+- players can replay another fate without losing discovered memories, or erase the full record
+
+The persistence mechanic is intentionally tied to the theme: **Viko tried to erase a choice; the interface refuses to forget yours.**
 
 <p align="center">
   <img src="assets/characters/Viko_Memory_He_Refused_VibeFlow.png" alt="Viko confronts the memory he refused" width="390" />
   <img src="assets/characters/Kleopatra_Queen_Remembers_VibeFlow.png" alt="Kleopatra — the Queen who remembers" width="390" />
 </p>
+
+### V2 architecture
+
+```text
+site/
+├── index.html     # Narrative structure + semantic interface
+├── styles.css     # Cinematic dark/gold system + responsive design
+├── app.js         # Memory state, branching endings, persistence, archive
+└── README.md      # V2 design and run notes
+```
+
+No framework or build step is required. The interaction is intentionally small enough that the state machine remains readable in plain JavaScript.
+
+---
+
+## Original hackathon experience
+
+The original design decision was to make the **choice part of Viko's conflict**, not an extra interaction added after the story.
+
+The player faced the same contradiction that defines the character:
+
+- **Remember** — reclaim the King, the Queen, the responsibility, and the life Viko deliberately erased.
+- **Refuse** — protect the identity he chose for himself, even if the world may need the person he used to be.
+
+The experience was built around commitment rather than an endless branching menu.
+
+**[Open the original VibeFlow build →](https://portal-snapshots.users.skycastle.ai/perma-christina-f06f090a162fc0ae3150ab88/index.html?v=1789411764930)**
 
 ---
 
@@ -99,9 +139,9 @@ She carries the memory of a shared life that Viko intentionally removed from him
 
 ---
 
-## How I built it
+## How I built the original submission
 
-The project used a small multimodal pipeline rather than treating each AI output as a separate artifact.
+The project used a multimodal pipeline rather than treating each AI output as a separate artifact.
 
 **1. Character + world design**  
 I defined Viko's contradiction, Kleopatra's role, the visual language, and the central choice first.
@@ -110,19 +150,19 @@ I defined Viko's contradiction, Kleopatra's role, the visual language, and the c
 I generated and refined visual assets with **xAI · Grok Imagine Image 2.0**, keeping recurring motifs and character identity consistent across story beats.
 
 **3. Cinematic submission**  
-I created the final 15-second character video with **ByteDance · Seedance 2.5**, combining visuals, voices, and music into the hackathon submission.
+I created the final 15-second character video with **ByteDance · Seedance 2.5**, combining visuals, voices, and music.
 
 **4. Interactive layer**  
 I built the choose-your-fate experience in **VibeFlow**, so the character did not only exist as an image or clip — the audience could enter the story and make the defining decision.
 
 **5. Iteration under deadline**  
-I tested the hosted build, fixed disappearing media and interaction issues, refined the final assets, and submitted the complete experience under hackathon time pressure.
+I tested the hosted build, fixed disappearing media and interaction issues, refined the assets, and submitted the complete experience under hackathon time pressure.
 
 ---
 
 ## Final submission
 
-The final hackathon entry included:
+The winning entry included:
 
 - a **15-second cinematic character video** with voices and music
 - Viko character and story artwork
@@ -130,13 +170,7 @@ The final hackathon entry included:
 - a hosted **VibeFlow interactive story**
 - a one-time **choose-your-fate** mechanic tied directly to the narrative
 
-### 🎬 Final video
-
 **[Watch the original 15-second submission →](assets/video/Viko_Ashura_FINAL_SUBMISSION_15s_with_voices_music.mp4)**
-
-### ⚔️ Interactive build
-
-**[Open VIKO ASHURA in VibeFlow →](https://portal-snapshots.users.skycastle.ai/perma-christina-f06f090a162fc0ae3150ab88/index.html?v=1789411764930)**
 
 ---
 
@@ -144,9 +178,9 @@ The final hackathon entry included:
 
 VIKO ASHURA won the **Grand Prize** in the SkyCastle Studio AI Hackathon, with a **$300 prize**.
 
-The winner announcement highlighted the fact that the project went beyond a standalone image and video by combining the Studio workflow with a complete VibeFlow experience where the player chooses Viko's fate and lives with the consequence.
+The winner announcement highlighted that the project went beyond a standalone image and video by combining the Studio workflow with a complete VibeFlow experience where the player chooses Viko's fate and lives with the consequence.
 
-That is the part of the project I value most: the tools were not the idea. They were used together to make the character feel like someone the audience could actually encounter.
+That became the direction for V2: not adding features for their own sake, but making the character feel increasingly like someone the audience can **discover, affect, and remember**.
 
 **[Read the hackathon notes and original submission links →](docs/hackathon.md)**
 
@@ -154,10 +188,29 @@ That is the part of the project I value most: the tools were not the idea. They 
 
 ## What I learned
 
-- **Interaction is strongest when it comes from the story.** The choice works because it is Viko's problem, not because the interface needed a button.
-- **Consistency matters more as the pipeline grows.** Once images, video, sound, and an interactive site all describe the same character, small visual or narrative inconsistencies become much more noticeable.
-- **A working experience beats a collection of outputs.** Connecting the media into something people could open, explore, and decide inside made the project much more complete.
-- **Shipping under a deadline changes the priorities.** I had to balance visual polish with hosted-media reliability, interaction bugs, and submission timing.
+- **Interaction is strongest when it comes from the story.** The choices work because they are Viko's problem, not because the interface needed buttons.
+- **Exploration should change agency.** In V2, memory fragments unlock different decisions instead of acting as decorative collectibles.
+- **Persistence can be narrative.** `localStorage` is a technical feature, but here it reinforces the story's obsession with remembering and erasure.
+- **Consistency matters more as the pipeline grows.** Images, video, sound, copy, and interaction all need to describe the same character.
+- **A working experience beats a collection of outputs.** Connecting the media into something people can enter made the project significantly stronger.
+
+---
+
+## Run V2 locally
+
+From the repository root:
+
+```bash
+python -m http.server 8000
+```
+
+Then open:
+
+```text
+http://localhost:8000/
+```
+
+The root `index.html` redirects directly into the V2 experience.
 
 ---
 
@@ -165,21 +218,26 @@ That is the part of the project I value most: the tools were not the idea. They 
 
 ```text
 vikko/
+├── index.html           # Entry point for the expanded experience
 ├── assets/
-│   ├── characters/    # Final character and story visuals
-│   └── video/         # Final 15-second hackathon submission
+│   ├── characters/      # Final character and story visuals
+│   └── video/           # Final 15-second hackathon submission
 ├── docs/
-│   ├── story.md       # Narrative and character notes
-│   └── hackathon.md   # Submission details and award context
-├── site/              # Space for a preserved/exported interactive build
-└── README.md          # Portfolio case study
+│   ├── story.md         # Narrative and character notes
+│   └── hackathon.md     # Submission details and award context
+├── site/
+│   ├── index.html       # V2 narrative interface
+│   ├── styles.css       # Visual system
+│   ├── app.js           # State + branching logic
+│   └── README.md        # V2 documentation
+└── README.md            # Portfolio case study
 ```
 
 ---
 
 ## Project links
 
-- **Interactive experience:** [VIKO ASHURA — VibeFlow build](https://portal-snapshots.users.skycastle.ai/perma-christina-f06f090a162fc0ae3150ab88/index.html?v=1789411764930)
+- **Original interactive experience:** [VIKO ASHURA — VibeFlow build](https://portal-snapshots.users.skycastle.ai/perma-christina-f06f090a162fc0ae3150ab88/index.html?v=1789411764930)
 - **Original SkyCastle submission:** [MainCharacter — VIKO ASHURA](https://skycastle-ai.slack.com/archives/C0BG5GRT0GP/p1789441289035689)
 - **SkyCastle profile:** [Christina on SkyCastle](https://skycastle.ai/u/christina)
 
