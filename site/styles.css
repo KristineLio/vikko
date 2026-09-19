@@ -228,3 +228,189 @@ button { font: inherit; }
   html { scroll-behavior: auto; }
   *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
 }
+
+
+/* ---------- V2 clarity pass: lighter, clearer, still cinematic ---------- */
+:root {
+  --bg: #15130f;
+  --panel: #201c15;
+  --panel-2: #292319;
+  --text: #fffaf0;
+  --muted: #cfc3ae;
+  --gold: #d5b36a;
+  --gold-bright: #f0d58f;
+  --line: rgba(240, 213, 143, 0.28);
+}
+
+html { background: var(--bg); }
+
+body {
+  background:
+    radial-gradient(circle at 12% 12%, rgba(213,179,106,.16), transparent 30%),
+    radial-gradient(circle at 88% 32%, rgba(185,144,72,.12), transparent 28%),
+    linear-gradient(180deg, #17140f 0%, #1b1711 48%, #14120e 100%);
+}
+
+.grain { opacity: .025; }
+
+.topbar {
+  border-bottom-color: rgba(255,255,255,.11);
+  background: rgba(21,19,15,.80);
+  box-shadow: 0 8px 30px rgba(0,0,0,.16);
+}
+
+.save-state { color: #d7ccb9; }
+
+.ghost-button {
+  color: #e1d6c3;
+  border-color: rgba(240,213,143,.32);
+  background: rgba(255,255,255,.025);
+}
+
+.hero-copy { color: #eee4d3; }
+.text-link { color: #ded3bf; }
+.hero-status { color: #ded2bd; }
+.returning-message {
+  color: #f2e8d8;
+  background: rgba(26,22,16,.62);
+}
+
+.intro,
+.memories,
+.archive,
+.making {
+  position: relative;
+  border-top: 1px solid rgba(255,255,255,.06);
+}
+
+.intro::before,
+.archive::before {
+  content: "";
+  position: absolute;
+  inset: 0 -100vmax;
+  z-index: -1;
+  background: rgba(255,255,255,.025);
+  box-shadow: 0 0 0 100vmax rgba(255,255,255,.025);
+  clip-path: inset(0 -100vmax);
+}
+
+.split-copy p,
+.memory-hint,
+.archive-status,
+.archive-card p,
+.choice-description,
+.decision-copy,
+.dialog-body {
+  color: #d5cab7;
+}
+
+.section-kicker,
+.eyebrow,
+.memory-card-copy small,
+.archive-card small {
+  color: var(--gold-bright);
+}
+
+.meter-track { background: rgba(255,255,255,.14); }
+
+.memory-card {
+  border-color: rgba(255,255,255,.15);
+  background: #241f18;
+  box-shadow: 0 14px 34px rgba(0,0,0,.18);
+}
+
+.memory-card img {
+  filter: saturate(.82) brightness(.78) contrast(1.02);
+}
+
+.memory-card:hover img {
+  filter: saturate(.95) brightness(.9) contrast(1.02);
+}
+
+.memory-overlay {
+  background:
+    linear-gradient(0deg, rgba(13,11,8,.86) 0%, rgba(13,11,8,.14) 62%, rgba(13,11,8,.10));
+}
+
+.memory-card-copy span { color: #e1d7c5; }
+
+.memory-card.is-found {
+  border-color: rgba(240,213,143,.62);
+  box-shadow: 0 0 0 1px rgba(240,213,143,.12), 0 18px 40px rgba(0,0,0,.18);
+}
+
+.memory-card.is-found img {
+  filter: saturate(1) brightness(.86) sepia(.04);
+}
+
+.found-mark {
+  color: #fff2c4;
+  background: rgba(35,29,18,.88);
+  border-color: rgba(240,213,143,.72);
+}
+
+.decision-stage {
+  border-color: rgba(240,213,143,.34);
+  background:
+    radial-gradient(circle at 50% 8%, rgba(213,179,106,.18), transparent 42%),
+    linear-gradient(180deg, #242018 0%, #1b1712 100%);
+  box-shadow: 0 24px 60px rgba(0,0,0,.18);
+}
+
+.decision-lock { color: #c7b895; }
+
+.choice-card {
+  border-color: rgba(255,255,255,.16);
+  background: rgba(255,255,255,.045);
+}
+
+.choice-card:disabled {
+  opacity: .58;
+}
+
+.choice-card:not(:disabled) {
+  background: rgba(255,255,255,.065);
+  border-color: rgba(240,213,143,.30);
+}
+
+.archive-card {
+  border-color: rgba(255,255,255,.15);
+  background: #241f18;
+  box-shadow: 0 14px 34px rgba(0,0,0,.16);
+}
+
+.archive-card img {
+  filter: brightness(.72) saturate(.86);
+}
+
+.archive-card::after {
+  background: linear-gradient(0deg, rgba(13,11,8,.91), rgba(13,11,8,.06) 72%);
+}
+
+.outcome-card {
+  background:
+    radial-gradient(circle at 70% 20%, rgba(213,179,106,.18), transparent 36%),
+    #241f18;
+}
+
+.tech-row span {
+  color: #ddd2bf;
+  border-color: rgba(255,255,255,.15);
+  background: rgba(255,255,255,.025);
+}
+
+.memory-dialog {
+  border-color: rgba(240,213,143,.45);
+  background:
+    radial-gradient(circle at 85% 5%, rgba(213,179,106,.20), transparent 34%),
+    #231e17;
+}
+
+.memory-dialog::backdrop {
+  background: rgba(12,10,8,.62);
+}
+
+.footer {
+  color: #aa9e8a;
+  border-top-color: rgba(255,255,255,.10);
+}
