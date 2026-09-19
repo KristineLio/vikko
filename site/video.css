@@ -15,3 +15,24 @@
     object-position: center center;
   }
 }
+
+
+/* Brighter opening: keep the cinematic visible instead of hiding it under black. */
+.hero-image,
+.hero-video {
+  filter: saturate(.94) contrast(1.02) brightness(.92);
+}
+
+.hero-vignette {
+  background:
+    linear-gradient(90deg, rgba(12,10,8,.72) 0%, rgba(12,10,8,.46) 40%, rgba(12,10,8,.12) 72%, rgba(12,10,8,.28) 100%),
+    linear-gradient(0deg, rgba(12,10,8,.76) 0%, rgba(12,10,8,.10) 50%, rgba(12,10,8,.16) 100%);
+}
+
+@media (max-width: 700px) {
+  .hero-vignette {
+    background:
+      linear-gradient(90deg, rgba(12,10,8,.64), rgba(12,10,8,.22)),
+      linear-gradient(0deg, rgba(12,10,8,.72) 0%, rgba(12,10,8,.10) 54%, rgba(12,10,8,.16) 100%);
+  }
+}
